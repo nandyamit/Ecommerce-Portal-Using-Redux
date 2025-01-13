@@ -8,11 +8,10 @@ rm -rf client/dist
 # Install root dependencies
 npm install
 
-# Move to server directory and rebuild bcrypt
+# Move to server directory and seed data
 cd server
 npm install
-npm install node-pre-gyp
-npm install bcrypt
+node config/seeds.js
 cd ..
 
 # Move to client directory
