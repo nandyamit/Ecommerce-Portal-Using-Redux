@@ -10,11 +10,8 @@ npm install
 cd client
 npm install
 
-# Build client
-npm run build
+# Build client using npx
+npx vite build
 
 # Return to root
 cd ..
-
-# Start the server
-npm start
