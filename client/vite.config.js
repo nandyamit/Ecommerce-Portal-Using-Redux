@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+const { defineConfig } = require('vite')
+const react = require('@vitejs/plugin-react')
 
-export default defineConfig({
+module.exports = defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
@@ -17,13 +17,6 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: false,
-    rollupOptions: {
-      output: {
-        manualChunks: undefined
-      }
-    },
-    chunkSizeWarningLimit: 1600,
-    manifest: true
+    sourcemap: false
   }
-});
+})
