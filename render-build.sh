@@ -8,9 +8,11 @@ rm -rf client/dist
 # Install root dependencies
 npm install
 
-# Rebuild bcrypt
+# Move to server directory and rebuild bcrypt
 cd server
-npm rebuild bcrypt --build-from-source
+npm install
+npm install node-pre-gyp
+npm install bcrypt
 cd ..
 
 # Move to client directory
