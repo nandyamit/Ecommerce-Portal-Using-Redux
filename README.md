@@ -1,123 +1,192 @@
-# 22 State: Redux Store (Extra Credit)
+# E-commerce Platform with Redux 🛍️
 
-## Your Task
+A modern e-commerce platform built with MERN stack (MongoDB, Express.js, React, Node.js) and Redux for state management. This application provides a robust shopping experience with features like product browsing, cart management, and secure checkout.
 
-In this module, you learned how to manage global state using React’s Context API. The Context API is quickly gaining traction as a worthy alternative or perhaps even successor to other libraries that manage global state in tandem with React, such as Flux or MobX. Nonetheless, the open source JavaScript library Redux remains the industry standard for managing complex state in a large-scale React application, and you’ll likely encounter it on the job.
+## 🔗 Live Application
+[Visit the deployed application](https://ecommerce-portal-using-redux.onrender.com/)
 
-Your challenge this week is to refactor the e-commerce platform from [Activity 26](../01-Activities/26-Stu_Actions-Reducers/Unsolved) so that it uses [Redux](https://redux.js.org/). You won’t need to make sweeping changes to the code, but you will need to read through the Redux documentation on your own to find the information you need. Some guidelines have been provided in the Getting Started section to point you in the right direction. If you haven't yet, download the [e-commerce platform code from Activity 26](http://static.fullstack-bootcamp.com/fullstack-ground/unit-22/26-Stu_Actions-Reducers.zip).
+## Table of Contents
+- [Live Application](#-live-application)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Redux Implementation](#redux-implementation)
+- [Deployment](#deployment)
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
+- [License](#license)
 
-**On the Job**: Web developers frequently have to immerse themselves in a new technology to solve a problem, with only that tool’s documentation for help. They must sift through it to find the information that matches the specific problem they’re trying to solve. This assignment will allow you to practice a skill that you’ll use many times over the course of your career.
+## Features
 
-Remember, this module's Challenge is extra credit. It is not required for submission, nor will it count towards one of the two assignments that you can skip. If you choose to submit this Challenge, you will receive extra credit points on your final grade. However, if you choose not to submit it, your final grade will not be affected in any way. This Challenge is an opportunity for you to further practice your skills and get feedback on it, with the added incentive of receiving extra credit for the work.
+| Feature | Description |
+|---------|------------|
+| Product Catalog | Browse products with category filtering |
+| Shopping Cart | Add/remove items, update quantities |
+| User Authentication | Secure signup/login functionality |
+| Order History | View past orders and details |
+| Category Management | Filter products by categories |
+| Responsive Design | Mobile-friendly interface |
+| Secure Checkout | Integration with Stripe payments |
+| State Management | Centralized Redux store |
 
-## User Story
+## Technologies Used
 
-```md
-AS a senior engineer working on an e-commerce platform
-I WANT my platform to use Redux to manage global state instead of the Context API
-SO THAT my website's state management is taken out of the React ecosystem
+### Frontend
+- React
+- Redux Toolkit
+- Apollo Client
+- Vite
+- React Router DOM
+- Stripe Integration
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- GraphQL
+- JWT Authentication
+- bcryptjs
+
+### Development & Deployment
+- Git
+- npm
+- ESLint
+- Render (Deployment)
+- MongoDB Atlas
+
+## Project Structure
+
 ```
-
-## Acceptance Criteria
-
-```md
-GIVEN an e-commerce platform that uses Redux to manage global state
-WHEN I review the app’s store
-THEN I find that the app uses a Redux store instead of the Context API
-WHEN I review the way the React front end accesses the store
-THEN I find that the app uses a Redux provider
-WHEN I review the way the app determines changes to its global state
-THEN I find that the app passes reducers to a Redux store instead of using the Context API
-WHEN I review the way the app extracts state data from the store
-THEN I find that the app uses Redux instead of the Context API
-WHEN I review the way the app dispatches actions
-THEN I find that the app uses Redux instead of the Context API
+client/
+├── public/
+│   └── images/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── redux/
+│   │   ├── features/
+│   │   └── store.js
+│   ├── utils/
+│   └── App.jsx
+server/
+├── config/
+├── models/
+├── schemas/
+└── server.js
 ```
-
-## Mock-Up
-
-This section reviews the web application's general appearance and functionality.
-
-The following animation shows how a user can register using the Signup page and then navigate to the Products page:
-
-![A user registers on the Signup page and then navigates to the Products page, which displays images and descriptions of products.](./Assets/22-state-homework-demo-01.gif)
-
-The following animation shows how the user can select a category, choose a product, view details about it on the product page, and add and remove it from their shopping cart:
-
-![The user selects a category, chooses a product, views details about it on the product page, and adds it to and removes it from their shopping cart.](./Assets/22-state-homework-demo-02.gif)
-
-Finally, the user can check out by going to their shopping cart, as shown in the following animation:
-
-![The user checks out by going to their shopping cart.](./Assets/22-state-homework-demo-03.gif)
 
 ## Getting Started
 
-For instructions to add Redux to your application, refer to the [Redux Fundamentals basic tutorial](https://redux.js.org/basics/basic-tutorial). Note that the documentation will refer to additional packages that you'll need to complete this implementation.
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/your-repo-name.git
+cd your-repo-name
+```
 
-Be sure to review ALL of the documentation, because there are newer methods that can make these tools much easier to implement. React has gone through several iterations; as such, some React-and-Redux tutorials will assume that you aren't using Hooks.
+2. Install dependencies:
+```bash
+npm install
+cd client && npm install
+cd ../server && npm install
+```
 
-You'll use the Stripe API to process payments, which includes making front-end and back-end changes. Don't worry, Stripe provides test credentials, so you won't need to use a real credit card to try it out. Refer to the [Stripe docs on testing your integration](https://stripe.com/docs/testing).
+3. Set up environment variables:
+```env
+MONGODB_URI=your_mongodb_uri
+JWT_SECRET=your_jwt_secret
+STRIPE_KEY=your_stripe_key
+```
 
-## Grading Requirements
+4. Start development servers:
+```bash
+npm run develop
+```
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+## Redux Implementation
 
-This Challenge is graded based on the following criteria:
+The application uses Redux Toolkit for state management with the following slices:
 
-### Technical Acceptance Criteria: 40%
+### Cart Slice
+- Manages shopping cart state
+- Handles add/remove/update operations
+- Syncs with IndexedDB
 
-* Satisfies all of the preceding acceptance criteria plus the following:
+### Categories Slice
+- Manages product categories
+- Handles category filtering
+- Updates current category
 
-  * Retains all the functionality of the original application.
+### Products Slice
+- Manages product data
+- Handles product updates
+- Syncs with backend
 
-  * Application must be deployed to Render.
+## Deployment
 
-### Deployment: 32%
+### Prerequisites
+- Render account
+- MongoDB Atlas account
+- Environmental variables configured
 
-* Application deployed at live URL.
+### Deployment Steps
 
-* Application loads with no errors.
+1. Push code to GitHub repository
 
-* Application GitHub URL submitted.
+2. Create new Web Service in Render:
+   - Connect repository
+   - Set build command:
+   ```bash
+   npm install && cd client && npm install && npm run build && cd ..
+   ```
+   - Set start command:
+   ```bash
+   npm start
+   ```
 
-* GitHub repository contains application code.
+3. Configure environment variables in Render
 
-### Application Quality: 15%
+4. Deploy and monitor build process
 
-* User experience is intuitive and easy to navigate.
+Current Deployment: [https://ecommerce-portal-using-redux.onrender.com](https://ecommerce-portal-using-redux.onrender.com)
 
-* User interface style is clean and polished.
+## Screenshots
 
-* Application resembles the mock-up functionality provided in the Challenge instructions.
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
 
-### Repository Quality: 13%
 
-* Repository has a unique name.
+## Contributing
 
-* Repository follows best practices for file structure and naming conventions.
+1. Fork the repository
+2. Create a feature branch
+```bash
+git checkout -b feature/YourFeature
+```
+3. Commit changes
+```bash
+git commit -m 'Add some feature'
+```
+4. Push to the branch
+```bash
+git push origin feature/YourFeature
+```
+5. Create a Pull Request
 
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
+## License
 
-* Repository contains multiple descriptive commit messages.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-* Repository contains high-quality README file with description, screenshot, and link to the deployed application.
+## Acknowledgments
 
-## Review
+- Vite for build tooling
+- Redux Toolkit for state management
+- GraphQL for API queries
+- MongoDB Atlas for database hosting
+- Render for application hosting
 
-You are required to submit BOTH of the following for review:
 
-* The URL of the functional, deployed application.
 
-* The URL of the GitHub repository, with a unique name and a README describing the project.
-
----
-
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
